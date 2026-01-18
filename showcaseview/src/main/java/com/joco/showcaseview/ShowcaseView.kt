@@ -45,6 +45,7 @@ import com.joco.showcaseview.highlight.ShowcaseHighlight
  */
 @Composable
 fun ShowcaseView(
+    modifier: Modifier = Modifier,
     visible: Boolean,
     targetCoordinates: LayoutCoordinates,
     position: ShowcasePosition = ShowcasePosition.Default,
@@ -65,6 +66,7 @@ fun ShowcaseView(
     val highlightDrawer = highlight.create(targetCoordinates = targetCoordinates)
 
     AnimatedVisibility(
+        modifier = modifier,
         visibleState = transition,
         enter = fadeIn(tween(animationDuration.enterMillis)),
         exit = fadeOut(tween(animationDuration.exitMillis))

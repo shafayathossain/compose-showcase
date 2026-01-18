@@ -1,10 +1,12 @@
 package com.joco.showcase.sequence
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.zIndex
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.layout.onGloballyPositioned
 import com.joco.showcaseview.AnimationDuration
@@ -22,11 +24,12 @@ fun SequenceShowcase(
 ) {
     val scope = remember(state) { SequenceShowcaseScope(state) }
 
-    Box(modifier = Modifier.fillMaxWidth()) {
+    Box(modifier = Modifier.fillMaxSize()) {
         scope.content()
 
         state.currentTarget?.let { target ->
             ShowcaseView(
+                modifier = Modifier.zIndex(1f),
                 visible = state.showCaseVisible,
                 targetCoordinates = target.coordinates,
                 position = target.position,
