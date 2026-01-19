@@ -184,6 +184,10 @@ private fun ShowcaseDialog(
                         }
                     }
                 }
+
+                // Ensure the dialog stays within the screen bounds
+                offsetX = offsetX.coerceIn(0f, screenWidth - dialogWidth)
+                offsetY = offsetY.coerceIn(0f, screenHeight - dialogHeight)
             }
     ) {
         content(highlightBounds)
