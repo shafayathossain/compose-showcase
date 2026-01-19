@@ -9,6 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 dependencyResolutionManagement {
@@ -16,11 +17,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
-rootProject.name = "Compose Showcase"
+rootProject.name = "compose-showcase"
 include(":app")
 include(":dialog")
 include(":showcase-sequence")
 include(":showcaseview")
+include(":shared-demo")

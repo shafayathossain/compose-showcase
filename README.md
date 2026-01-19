@@ -1,14 +1,14 @@
 <div align="center">
     
   # Compose Showcase
-
-  <img src="https://img.shields.io/badge/platform-android-brightgreen.svg" alt="platform">
+  
+  ![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS%20(KMP)-brightgreen.svg)
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license">
   <img src="https://github.com/jocoand/compose-showcase/actions/workflows/verify-screenshot-test.yml/badge.svg?branch=main" alt="status">
 
   <p>
     
-  A library for showcasing your feature in Jetpack Compose.
+  A Kotlin Multiplatform library for showcasing your features in Compose Multiplatform (Android & iOS).
   
   </p>
 
@@ -28,15 +28,15 @@ Creating a sequence of showcases in a specific order.
 </p>
 
 ### Installation
-- Gradle
-  ```
+- Gradle (Common Main)
+  ```kotlin
   implementation("io.github.jocoand:showcase-sequence:1.3.1")
   ```
 
 ### Usage
 - #### Create your Showcase dialog
 
-- ```
+- ```kotlin
     @Composable
     fun MyShowcaseDialog(text: String, onClick: () -> Unit) {
         Column {
@@ -50,7 +50,7 @@ Creating a sequence of showcases in a specific order.
   ```
   or you can use our [Predefined Dialog](https://github.com/jocoand/compose-showcase?tab=readme-ov-file#-dialog)
 - #### Declare the `SequenceShowcase` & `sequenceShowcaseState`
-- ```
+- ```kotlin
   val sequenceShowcaseState = rememberSequenceShowcaseState()
   
   SequenceShowcase(state = sequenceShowcaseState) {
@@ -60,7 +60,7 @@ Creating a sequence of showcases in a specific order.
 
 - #### Mark your target view (view to be highlighted) with `sequenceShowcaseTarget` modifier
 
-- ```
+- ```kotlin
     
     MyView1(    // View to be highlighted
       modifier = Modifier
@@ -80,7 +80,7 @@ Creating a sequence of showcases in a specific order.
   `content`: dialog to be displayed
 
 - #### Use `SequenceShowcaseState.start()` to start the showcase
-- ```
+- ```kotlin
     LaunchButton(
         ...
         onClick = { sequenceShowcaseState.start() }
@@ -89,7 +89,7 @@ Creating a sequence of showcases in a specific order.
   `index`: value to start at certain index (optional)
 
 - #### Use `SequenceShowcaseState.next()` to navigate to the next showcase
-- ```
+- ```kotlin
     MyView2(
         modifier = Modifier
             .sequenceShowcaseTarget(
@@ -108,7 +108,7 @@ Creating a sequence of showcases in a specific order.
 
 - You can also dismiss the the showcase using `dimiss()`
 
-- See [sample](https://github.com/jocoand/compose-showcase/blob/main/app/src/main/java/com/joco/composeshowcase/MainActivity.kt) for more more details
+- See [sample](https://github.com/jocoand/compose-showcase/blob/main/shared-demo/src/commonMain/kotlin/com/joco/shareddemo/App.kt) for more more details (Now in `shared-demo` module)
 
 ### Config
 - `position`
@@ -174,7 +174,9 @@ Creating a sequence of showcases in a specific order.
 - https://github.com/canopas/compose-intro-showcase
 
 ### Sample 🎨 
-- See [MainActivity](https://github.com/jocoand/compose-showcase/blob/main/app/src/main/java/com/joco/composeshowcase/MainActivity.kt)
+- See [App.kt](https://github.com/jocoand/compose-showcase/blob/main/shared-demo/src/commonMain/kotlin/com/joco/shareddemo/App.kt) in the `shared-demo` module for the KMP implementation.
+- **Android App**: Run the `app` configuration in Android Studio.
+- **iOS App**: Open `iosApp/iosApp.xcodeproj` in Xcode and run.
 
 
 ## 🌀 ShowcaseView 
@@ -182,7 +184,7 @@ Creating a sequence of showcases in a specific order.
 
 In case you need more basic usage, you can you use [ShowcaseView](https://github.com/jocoand/compose-showcaseview/tree/main)
 
-```
+```kotlin
 implementation("io.github.jocoand:showcase-sequence:1.4.5")
 ```
 
@@ -195,7 +197,7 @@ A predefined dialog with arrow shape pointer.
 <img width="280" alt="Screen Shot 2025-04-03 at 13 15 05" src="https://github.com/user-attachments/assets/8c46be99-dc26-4cef-b5a9-36071db4dce9" />
 
 ### Usage
-```
+```kotlin
 .sequenceShowcaseTarget(
     ...
     .content  = {

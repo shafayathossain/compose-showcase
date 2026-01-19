@@ -59,11 +59,12 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icons.extended)
 
-    implementation(project(":showcase-sequence"))
+    // implementation(project(":showcase-sequence")) removed
 
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.espresso.core)
+    implementation(project(":shared-demo"))
     testImplementation(libs.ui.test.junit4)
 
     testImplementation(libs.roborazzi)

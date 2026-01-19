@@ -1,44 +1,36 @@
+
 plugins {
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("maven-publish")
 }
 
-android {
-    namespace = "com.joco.dialog"
-    compileSdk = 36
+group = "io.github.jocoand"
+version = "1.0.0"
 
-    defaultConfig {
+
+
+kotlin {
+    androidLibrary {
+        namespace = "com.joco.dialog"
+        compileSdk = 36
         minSdk = 23
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+    
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
+        }
+        androidMain.dependencies {
+            implementation(libs.androidx.core.ktx)
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    buildFeatures {
-        compose = true
-    }
-}
-
-dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.foundation)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }
