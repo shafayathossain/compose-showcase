@@ -28,10 +28,39 @@ Creating a sequence of showcases in a specific order.
 </p>
 
 ### Installation
-- Gradle (Common Main)
-  ```kotlin
-  implementation("io.github.jocoand:showcase-sequence:1.3.1")
-  ```
+
+1. Add the GitHub Packages repository to your `settings.gradle.kts` (or root `build.gradle.kts`):
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/shafayathossain/compose-showcase")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: "YOUR_GITHUB_USERNAME"
+                password = System.getenv("GITHUB_TOKEN") ?: "YOUR_GITHUB_TOKEN"
+            }
+        }
+    }
+}
+```
+
+> **Note:** You need a GitHub Personal Access Token (PAT) with `read:packages` scope to download artifacts from GitHub Packages.
+
+2. Add the dependencies to your module's `build.gradle.kts`:
+
+```kotlin
+// Showcase Sequence (Orchestrator)
+implementation("io.github.shafayathossain:showcase-sequence:1.4.0-beta01")
+
+// Showcase View (Core)
+implementation("io.github.shafayathossain:showcaseview:1.4.0-beta01")
+
+// Predefined Dialogs (Optional)
+implementation("io.github.shafayathossain:dialog:1.4.0-beta01")
+```
 
 ### Usage
 - #### Create your Showcase dialog
@@ -185,7 +214,7 @@ Creating a sequence of showcases in a specific order.
 In case you need more basic usage, you can you use [ShowcaseView](https://github.com/jocoand/compose-showcaseview/tree/main)
 
 ```kotlin
-implementation("io.github.jocoand:showcase-sequence:1.4.5")
+implementation("io.github.shafayathossain:showcaseview:1.4.0-beta01")
 ```
 
 ## 🏮 Dialog
