@@ -37,6 +37,5 @@ google-services.json
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
-
 .claude/
 .gemini/
