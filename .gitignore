@@ -32,5 +32,11 @@ google-services.json
 # Android Profiling
 *.hprof
 .kotlin
+# Xcode
+.DS_Store
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
 .claude/
 .gemini/
