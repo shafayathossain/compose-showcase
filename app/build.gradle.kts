@@ -1,10 +1,12 @@
+import com.android.build.api.dsl.ApplicationExtension
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.roborazzi)
     alias(libs.plugins.composeCompiler)
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "com.joco.composeshowcase"
     compileSdk = 36
 

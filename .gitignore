@@ -32,6 +32,5 @@ google-services.json
 # Android Profiling
 *.hprof
 .kotlin
-xcuserdata/
 .claude/
 .gemini/

@@ -100,6 +100,7 @@ sealed interface ShowcaseHighlight {
             coordinates: LayoutCoordinates,
             targetMargin: Float
         ) {
+            if(!coordinates.isAttached) return
             val targetRect = coordinates.boundsInRoot()
             val xOffset = targetRect.topLeft.x
             val yOffset = targetRect.topLeft.y
