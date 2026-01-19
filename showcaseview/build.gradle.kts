@@ -7,7 +7,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "io.github.jocoand"
+group = "io.github.shafayathossain"
 version = "1.3.1"
 
 
